@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+          - name: frontend
+            image: mreider/frontend:1.0
+            ports:
+            - containerPort: 15002
+              name: containerport1
+            - containerPort: 15003
+              name: containerport2
+            env:
+            - name: PORT
+              value: "15002"
+            - name: HTTP_PORT
+              value: "15003"

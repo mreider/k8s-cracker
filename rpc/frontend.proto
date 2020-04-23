@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package rpc;
+
+service FrontendService {
+    rpc NotifyCracked (NotifyCrackedRequest) returns (NotifyCrackedResponse);
+}
+
+message NotifyCrackedRequest {
+    string cracker_id = 1;
+}
+
+message NotifyCrackedResponse {
+}

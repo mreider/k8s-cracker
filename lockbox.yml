@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lockbox-deployment
+  labels:
+    app: lockbox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lockbox
+  template:
+    metadata:
+      labels:
+        app: lockbox
+    spec:
+      containers:
+          - name: lockbox
+            image: mreider/lockbox:1.0
+            ports:
+            - containerPort: 15001
+            env:
+            - name: PORT
+              value: "15001"

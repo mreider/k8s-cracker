@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cracker-deployment
+  labels:
+    app: cracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cracker
+  template:
+    metadata:
+      labels:
+        app: cracker
+    spec:
+      containers:
+        - name: cracker
+          image: mreider/cracker:1.0
+          env:
+          - name: LOCKBOX_ENDPOINT
+            value: "15001"
+          - name: FRONTEND_ENDPOINT
+            value: "15002"
+          - name: WORKERS
+            value: "0"
+          - name: MEMLEAK
+            value: "FALSE"
+          - name: CPULEAK
+            value: "FALSE"

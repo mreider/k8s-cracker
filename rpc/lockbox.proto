@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package rpc;
+
+service LockboxService {
+    rpc GeneratePassword (GeneratePasswordRequest) returns (GeneratePasswordResponse);
+}
+
+message GeneratePasswordRequest {
+}
+
+message GeneratePasswordResponse {
+    string password = 1;
+}
