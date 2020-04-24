@@ -5,10 +5,15 @@ metadata:
   labels:
     run: frontend
 spec:
+  type: NodePort
   ports:
   - port: 15002
+    name: rpc
     protocol: TCP
+    nodePort: 30002
   - port: 15003
+    name: http
     protocol: TCP
+    nodePort: 30003
   selector:
-    run: frontend
+    app: frontend
