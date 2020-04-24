@@ -19,9 +19,9 @@ spec:
           image: mreider/cracker:1.0
           env:
           - name: LOCKBOX_ENDPOINT
-            value: "15001"
+            value: "lockbox-service:15001"
           - name: FRONTEND_ENDPOINT
-            value: "15002"
+            value: "frontend-service:15002"
           - name: WORKERS
             value: "0"
           - name: MEMLEAK

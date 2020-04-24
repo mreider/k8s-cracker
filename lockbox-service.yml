@@ -9,4 +9,4 @@ spec:
   - port: 15001
     protocol: TCP
   selector:
-    run: lockbox
+    app: lockbox
