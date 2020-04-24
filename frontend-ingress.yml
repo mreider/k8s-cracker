@@ -5,4 +5,4 @@ metadata:
 spec:
   backend:
     serviceName: frontend-service
-    servicePort: 30003
+    servicePort: 15003
