@@ -5,12 +5,11 @@ metadata:
   labels:
     run: frontend
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 15002
     name: rpc
     protocol: TCP
-    nodePort: 30002
   - port: 15003
     name: http
     protocol: TCP
