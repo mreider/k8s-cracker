@@ -69,7 +69,6 @@ function reconnectWebSocket() {
 	var cracker_element = document.getElementById(message.cracker_id);
     if (cracker_element == null) {
 	  cracker_element = document.createElement("div");
-	  cracker_element.setAttribute("class", "pure-u-1");
       cracker_element.setAttribute("id", message.cracker_id);
       document.body.append(cracker_element);
     }
