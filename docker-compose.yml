@@ -26,8 +26,8 @@ services:
       LOCKBOX_ENDPOINT: lockbox:15001
       FRONTEND_ENDPOINT: frontend:15002
       WORKERS: 0
-      MEMLEAK: "TRUE"
-      CPULEAK: "TRUE"
+      MEMLEAK: "FALSE"
+      CPULEAK: "FALSE"
     depends_on:
       - lockbox
       - frontend

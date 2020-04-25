@@ -41,9 +41,19 @@ func (s *HTTPService) serveIndex(w http.ResponseWriter, _ *http.Request) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cracker Scores</title>
+	<title>Cracker Score Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
+
+<div class="container">
+<div class="starter-template">
+<h1>Here's a bunch of workers guessing codes</h1>
+<p class="lead">
+
 <script>
 
 var ws;
@@ -58,11 +68,12 @@ function reconnectWebSocket() {
     var message = JSON.parse(event.data);
 	var cracker_element = document.getElementById(message.cracker_id);
     if (cracker_element == null) {
-      cracker_element = document.createElement("div");
+	  cracker_element = document.createElement("div");
+	  cracker_element.setAttribute("class", "pure-u-1");
       cracker_element.setAttribute("id", message.cracker_id);
       document.body.append(cracker_element);
     }
-    cracker_element.innerText = message.cracker_id + ": " + message.score.toString();
+    cracker_element.innerText = "cracker id: " + message.cracker_id + " correct guesses:" + message.score.toString();
   };
 }
 
@@ -70,6 +81,8 @@ reconnectWebSocket();
 setInterval(reconnectWebSocket, 1000);
 
 </script>
+</div>	
+</div>
 </body>
 </html>`
 
