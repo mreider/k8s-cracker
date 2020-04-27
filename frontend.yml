@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
           - name: frontend
-            image: mreider/frontend:1.0
+            image: mreider/frontend:1.1
             ports:
             - containerPort: 15002
               name: containerport1
