@@ -50,10 +50,8 @@ func (s *HTTPService) serveIndex(w http.ResponseWriter, _ *http.Request) {
 <body>
 
 <div class="container">
-<div class="starter-template">
+<div class="starter-template" id="clist">
 <h1>Here's a bunch of workers guessing codes</h1>
-<p class="lead">
-
 <script>
 
 var ws;
@@ -66,11 +64,12 @@ function reconnectWebSocket() {
   ws = new WebSocket(wsProtocol + "://" + window.location.host + "/ws");
   ws.onmessage = function(event) {
     var message = JSON.parse(event.data);
+	var objTo = document.getElementById('clist');
 	var cracker_element = document.getElementById(message.cracker_id);
     if (cracker_element == null) {
 	  cracker_element = document.createElement("div");
       cracker_element.setAttribute("id", message.cracker_id);
-      document.body.append(cracker_element);
+	  objTo.appendChild(cracker_element);
     }
     cracker_element.innerText = "cracker id: " + message.cracker_id + " correct guesses:" + message.score.toString();
   };
